@@ -4,9 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const images = document.querySelectorAll('.image');
 
   images.forEach((img) => {
-    // 👇❌ REMOVE this line:
-    // img.id = `div${index + 1}`;
-
+    // Don't overwrite the ID
     img.addEventListener('dragstart', (e) => {
       draggedElement = e.target;
       e.target.classList.add('selected');
@@ -17,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     img.addEventListener('dragover', (e) => {
-      e.preventDefault();
+      e.preventDefault(); // Allow dropping
     });
 
     img.addEventListener('drop', (e) => {
